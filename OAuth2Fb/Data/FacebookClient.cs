@@ -22,7 +22,7 @@ namespace OAuth2Fb.Data
         {
             _httpClient = new HttpClient
             {
-                BaseAddress = new Uri("Https://www.graph.facebook.com/v7.0/")
+                BaseAddress = new Uri("Https://www.graph.facebook.com/")
             };
             _httpClient.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
         }

@@ -7,6 +7,7 @@ namespace OAuth2Fb.Data
 {
     public class FacebookSettings
     {
-        public static string AccessToken = "EAAO2hOK56IABAHRr5O7QYpCR77VWQKI82KPCS1GPtOzNIzM3WUoZAbdgYa43NGtYjuzkZA3W8oFFW1CWfU557zpAsGZA1cUCRSGPqs0vira8ePyyY0249ZC2VuSiZBIMdCB6IdGA6Ky4ef9WsZAZChJtMATaG2hDBOYAZCfcwiLFoeX8XibspZBu2E2fymgz5Jk4pNz85ZAq3eDtafV7cYv91fAjT0z4cZCa4IcCbAzzH9WZC9Lz4DlZBkiBl";
+        public static string AccessToken = "EAAO2hOK56IABAB3v61sBvyUC1onzznuEhndiEvpmf6f8ZCB3LyenMVHAAysn9ksXoUncLyo6YpzrrshldZAzyeANg0EHeuKBDAh1aB2bXoDHCVi7B9e6MMfUIXG1XBhnpeO3IPAUa0QyRxVjiPebdV87VW7hfJYNcZCxD6Fr4KxIH0r48bwzgsnZCThap5AGlsMZCO0AMGeWCCk9QZB9CxXR0BkCvPNRCArAyfmJ0vNAZDZD";
     }
 }
+                    

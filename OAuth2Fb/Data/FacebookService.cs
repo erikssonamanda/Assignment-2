@@ -15,22 +15,16 @@ namespace OAuth2Fb.Data
     public class FacebookService : IFacebookService
     {
         private readonly IFacebookClient _facebookClient;
-        private Facebook.FacebookClient client;
-
+        
         public FacebookService(IFacebookClient facebookClient)
         {
             _facebookClient = facebookClient;
         }
 
-        public FacebookService(Facebook.FacebookClient client)
-        {
-            this.client = client;
-        }
-
         public async Task<Account> GetAccountAsync(string accessToken)
         {
             var result = await _facebookClient.GetAsync<dynamic>(
-                accessToken, "me", "fields=id,first_name,last_name,email,profile_pic");
+                accessToken, "me", "fields=id,birthday,name,first_name,last_name,email");
 
             if (result == null)
             {
@@ -40,10 +34,11 @@ namespace OAuth2Fb.Data
             var account = new Account
             {
                 Id = result.id,
+                Birthday = result.birthday,
+                Name = result.name,
                 FirstName = result.first_name,
                 LastName = result.last_name,
-                Email = result.email,
-                ProfilePicture = result.profile_picture
+                Email = result.email
             };
 
             return account;

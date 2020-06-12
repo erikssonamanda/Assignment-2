@@ -12,6 +12,8 @@ using OAuth2Fb.Data;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using System.Security.Claims;
+using Microsoft.AspNetCore.Authentication;
 
 namespace OAuth2Fb
 {
@@ -38,6 +40,27 @@ namespace OAuth2Fb
             {
                 facebookOptions.AppId = Configuration["Authentication:Facebook:AppId"];
                 facebookOptions.AppSecret = Configuration["Authentication:Facebook:AppSecret"];
+                //facebookOptions.Scope.Add("https://www.facebook.com/dialog/oauth");
+                facebookOptions.ClaimActions.MapJsonKey(ClaimTypes.DateOfBirth, "dateofbirth");
+                facebookOptions.ClaimActions.MapJsonKey("urn:facebook:picture", "picture", "url");
+                facebookOptions.ClaimActions.MapJsonKey("urn:facebook:locale", "locale", "string");
+                facebookOptions.SaveTokens = true;
+
+                /*facebookOptions.Events.OnCreatingTicket = ctx =>
+                {
+                    List<AuthenticationToken> tokens = ctx.Properties.GetTokens().ToList();
+
+                    tokens.Add(new AuthenticationToken()
+                    {
+                        Name = "TicketCreated",
+                        Value = DateTime.UtcNow.ToString()
+                    });
+
+                    ctx.Properties.StoreTokens(tokens);
+
+                    return Task.CompletedTask;
+                };*/
+
             });
         }
 
